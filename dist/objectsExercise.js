@@ -1,6 +1,7 @@
+"use strict";
 // Write the Movie type alias to make the following two variables properly typed
 // Make sure that "originalTitle" is optional and "title" is readonly
-var dune = {
+const dune = {
     title: "Dune",
     originalTitle: "Dune Part One",
     director: "Denis Villeneuve",
@@ -11,7 +12,7 @@ var dune = {
         grossWorldwide: 400671789,
     },
 };
-var cats = {
+const cats = {
     title: "Cats",
     director: "Tom Hooper",
     releaseYear: 2019,
@@ -25,15 +26,14 @@ var cats = {
 // It should return the movie's worldwide gross minus its budget
 // For example...
 // getProfit(cats) => -21166652
-var getProfit = function (movie) {
+const getProfit = (movie) => {
     // return movie.boxOffice.grossWorldwide - movie.boxOffice.budget;
     // another way
-    var _a = movie.boxOffice, grossWorldwide = _a.grossWorldwide, budget = _a.budget;
+    const { grossWorldwide, budget } = movie.boxOffice;
     return grossWorldwide - budget;
 };
 // third way
-function getProfit3(_a) {
-    var _b = _a.boxOffice, grossWorldwide = _b.grossWorldwide, budget = _b.budget;
+function getProfit3({ boxOffice: { grossWorldwide, budget } }) {
     return grossWorldwide - budget;
 }
 console.log(getProfit(cats));
